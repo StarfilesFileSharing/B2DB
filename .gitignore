@@ -1,0 +1,8 @@
+node_modules/*
+bin/*
+yarn.lock
+package-lock.json
+
+blocks/*.json
+mempool/*.json
+.DS_Store

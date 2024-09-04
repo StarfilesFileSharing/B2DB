@@ -1,0 +1,26 @@
+{
+  "name": "B2DB",
+  "version": "1.0.0",
+  "description": "Big Distributed Database",
+  "main": "src/app.ts",
+  "repository": "git@github.com:StarfilesFileSharing/B2DB.git",
+  "author": "Starfiles",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^22.5.2",
+    "crypto": "^1.0.1",
+    "hyperswarm": "^4.8.2",
+    "typescript": "^5.5.4",
+    "webtorrent": "^2.5.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.0"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --exec npx tsx src/index.ts --ext ts",
+    "start": "npx tsx src/index.ts",
+    "build": "tsc"
+  }
+}
