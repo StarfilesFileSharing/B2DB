@@ -3,6 +3,8 @@ Using the technology behind bitcoin, without financialisation, to power P2P SQL 
 
 Built in Typescript using WebRTC.
 
+## This project is experimental & under heavy development
+
 Standard APIs involve:
 ```
 Client -> API -> Database
@@ -15,6 +17,7 @@ Database(Clients)
 
 ## Table of Contents
 - [Features](#features)
+- [Install](#install)
 - [Explanation](#explanation)
 - [FAQ](#faq)
 
@@ -25,6 +28,18 @@ Database(Clients)
 - Runs in any environment that supports WebRTC
 - Blockchain with 0 fees
 - Distributed around the world with redundancy
+
+## Install
+```
+git clone https://github.com/StarfilesFileSharing/B2DB
+cd B2DB
+yarn
+```
+
+### Start
+```
+yarn start
+```
 
 ## Explanation
 Instead of a client sending an HTTP request to an API, they complete PoW challenge (of any difficulty), for each database write (e.g insert/update). Once PoW has been complete, the transaction is announced to the mempool.
