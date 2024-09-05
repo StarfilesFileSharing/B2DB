@@ -168,7 +168,6 @@ state.states.mempool = state.states.mainnet;
         console.log("Mainnet State:", state.states.mainnet);
         console.log("Files Table:", state.states.mainnet.files?.state);
         console.log('Not sure what to write? Try these:');
-        console.log("  CREATE TABLE files (name, sha256_hash)");
         console.log("  INSERT INTO files (name, sha256_hash) VALUES ('app.ipa', 'xxxxxxxx')");
 
         const input = await prompt('Query: ');

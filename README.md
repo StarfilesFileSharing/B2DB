@@ -62,7 +62,9 @@ Using the same settlement/consensus technology as the Bitcoin network, B2DB powe
 
 In order to understand how B2DB works, you must understand that at it's core, Bitcoin is just a spreadsheet of balance changes. The Bitcoin network is a series of nodes & miners that agree to a series of rules about what rows are accepted into the spreadsheet. Thinking in this frame of mind, you can picture Bitcoin as a CSV with 3 columns (from, to, amount).
 
-B2DB extends this concept by allowing for custom table schemas to be added. You can create a table by running the `CREATE TABLE` query. You can then insert into your table and query it the same way you would a normal SQL database. Once enough SQL queries have been submitted, they can then be bundled into a block.
+B2DB extends this concept by allowing for custom table schemas to be added. You can insert into any table and query it the same way you would a normal SQL database, though storage is NoSQL, with no `CREATE TABLE` query. Once enough SQL queries have been submitted, they can then be bundled into a block.
+
+The core database is schemaless, but schema can be retroactively defined using client side validation and filtering.
 
 ### Is this a cryptocurrency? Are you selling a coin?
 NO! This is not a cryptocurrency. B2DB uses the technical innovations behind Bitcoin, removes all financial aspects, and provides a database instead.

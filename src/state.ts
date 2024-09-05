@@ -12,7 +12,6 @@ interface StateObject {
 }
 
 interface Table {
-    columns: string[];
     state: StateObject[];
     actions: string[];
 }
@@ -48,21 +47,10 @@ export function updateState(of: string, verifiedInstruction: VerifiedInstruction
     // TODO: Validate PoW to ensure difficulty is correct
 
     let tableName;
-    if(instruction.startsWith('CREATE TABLE')){
-        let unparsedInstruction = instruction.replace('CREATE TABLE ', '');
-        tableName = unparsedInstruction.split(' ')[0];
-        if(typeof states[of][tableName] !== "undefined") throw new Error('Database already exists');
-        states[of][tableName] = { columns: [], state: [], actions: [] }
-        const columns = unparsedInstruction.replace(tableName, '').trim().replace('(', '').replace(')', '').split(',');
-        for(let i=0;i<columns.length;i++){
-            const column = columns[i].trim();
-
-            if(!test) states[of][tableName]['columns'].push(column);
-        }
-    }else if(instruction.startsWith('INSERT INTO')){
+    if(instruction.startsWith('INSERT INTO')){
         let unparsedInstruction = instruction.replace('INSERT INTO ', '');
         tableName = unparsedInstruction.split(' ')[0];
-        if(typeof states[of][tableName] === "undefined") throw new Error('Table not found');
+        if(typeof states[of][tableName] === "undefined") states[of][tableName] = {state: [], actions: []};
         unparsedInstruction = unparsedInstruction.replace(tableName, '');
         let columns = unparsedInstruction.split('VALUES')[0].trim();
         unparsedInstruction = unparsedInstruction.replace(columns, '');
